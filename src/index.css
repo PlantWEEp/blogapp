@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  @layer base{
+    :root{
+      --primary-color:#054300;
+      --background-color-base:#0A0A0A; 
+      --good-bg:#46FF64;
+      --bad-bg:#FF4646;
+      --average-bg:#FFF846;
+      --color-white:#FFF5EE;
+      --secondary-bg:#30D5C8;
+    }
+  }
