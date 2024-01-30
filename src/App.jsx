@@ -6,13 +6,17 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 
 function App() { 
 
+
   return (
     <>
      <Routes>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/register" element={<Signup/>}/>
+      <Route path="/auth/login" element={<Login/>}/>
+      <Route path="/auth/register" element={<Signup/>}/>
      </Routes>
-    </>
+
+     
+      </>
+    
   )
 }
 
