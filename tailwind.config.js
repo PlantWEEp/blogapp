@@ -28,7 +28,7 @@ export default {
           hover: "var(--hover-color)",          // Background color on hover
           greybg: "var(--base-bg-color)",       // Grey background color
           whitecolor: "var(--color-white)",
-          yellowcolor: "var(--yellow-bg)"
+          yellowcolor: "var(--yellow-bg)",
         },
       },
     },

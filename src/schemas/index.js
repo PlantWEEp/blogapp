@@ -10,7 +10,7 @@ export const BasicSchema = yup.object().shape({
     .string()
     .min(5)
     .matches(passwordRules, { message: "Please create a stronger password" })
-    .required("Password is Required "),
+    .required("1 upper case letter, 1 lower case letter, 1 numeric digit "),
  
 });
 
