@@ -29,6 +29,9 @@ export default {
           greybg: "var(--base-bg-color)",       // Grey background color
           whitecolor: "var(--color-white)",
           yellowcolor: "var(--yellow-bg)",
+          primarycolor: "var(--primary-color)",
+          transparentcolor: "var(--transparent-b)"
+
         },
       },
     },
