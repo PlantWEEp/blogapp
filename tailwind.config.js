@@ -2,6 +2,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      content: {
+        'blob': 'url("./assets/blob.png")',
+        'arrowUpIcon': 'url("../src/arrow-up-icon.svg")',
+      },
       // Customizing font sizes
       fontSize: {
         "heading-lg": "64px",    // Large heading size
@@ -28,7 +32,9 @@ export default {
           hover: "var(--hover-color)",          // Background color on hover
           greybg: "var(--base-bg-color)",       // Grey background color
           whitecolor: "var(--color-white)",
-          yellowcolor: "var(--yellow-bg)"
+          yellowcolor: "var(--yellow-bg)",
+          danger:"var(--danger)",
+          primary:"(--primary-color)"
         },
       },
     },

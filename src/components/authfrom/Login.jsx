@@ -1,8 +1,6 @@
-// Login.jsx
-
 import { useFormik } from "formik";
 import { BasicSchema } from "../../schemas";
-
+import { Link } from "react-router-dom";
 
 const onSubmit = async (values, actions) => {
   console.log(values);
@@ -34,14 +32,19 @@ const Login = () => {
   return (
     <>
       <div className="  bg-skin-base relative">
-        <div className="min-h-screen flex items-center justify-center bg-[url('./assets/Login.png')]  bg-auto bg-no-repeat bg-right">
-
-          <div className="mr-[210px]">
-            <form onSubmit={handleSubmit} autoComplete="off" className="bg-skin-whitecolor p-8 rounded shadow-md w-[450px] ">
-              <h1 className="mb-4 font-bold text-2xl" >Welcome Back</h1>
+      <div className="min-h-screen flex items-center justify-center bg-[url('./assets/Login.png')] bg-auto bg-no-repeat bg-right relative lg:bg-[url('./assets/black.jpg')]">
+          <div className="mr-[210px] lg:w-[90%] lg:m-auto">
+            <form
+              onSubmit={handleSubmit}
+              autoComplete="off"
+              className="bg-skin-whitecolor p-8 rounded w-[550px] lg:w-full"
+            >
+              <h4 className="mb-4 font-bold text-custom-h4">Welcome Back</h4>
               <div className="mb-4">
-
-                <label htmlFor="email" className="block text-black text-sm font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-black text-custom-p font-medium mb-2"
+                >
                   Enter your Email-id
                 </label>
                 <input
@@ -51,14 +54,24 @@ const Login = () => {
                   type="email"
                   placeholder="Enter your email"
                   onBlur={handleBlur}
-                  className={`input-field ${errors.email && touched.email ? "input-error" : "" } w-[100%] px-[25px] py-[8px]
-                    border-black border-[1px] placeholder-gray-400 text-sm rounded-[5px]`}  />
+                  className={`input-field ${
+                    errors.email && touched.email ? "input-error" : ""
+                  } w-[100%] px-[14px] py-[8px]
+                    border-black border-[1px] placeholder-gray-400 text-custom-p rounded-[5px]`}
+                />
 
-                {errors.email && touched.email && <p className="error text-red-600">{errors.email}</p>}
+                {errors.email && touched.email && (
+                  <p className="error text-red-600 text-custom-p font-medium ">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               <div className="mb-4">
-                <label htmlFor="password" className=" block text-black text-sm font-medium mb-2">
+                <label
+                  htmlFor="password"
+                  className=" block text-black text-custom-p font-medium mb-2"
+                >
                   Password
                 </label>
                 <input
@@ -68,52 +81,54 @@ const Login = () => {
                   value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`input-field ${errors.password && touched.password ? "input-error" : ""} w-[100%] px-[25px] py-[8px]
-                   border-black border-[1px] placeholder-gray-400 text-sm rounded-[5px]`}
+                  className={`input-field ${
+                    errors.password && touched.password ? "input-error" : ""
+                  } w-[100%] px-[14px] py-[8px]
+                   border-black border-[1px] placeholder-gray-400 text-custom-p rounded-[5px]`}
                 />
-                {errors.password && touched.password && <p className="error text-red-600">{errors.password}</p>}
-                <p className="text-sm mt-[9px]"> <a href="#">Need help?</a> <a href="#">Forgot password</a> </p>
+                {errors.password && touched.password && (
+                  <p className="error text-red-600 text-custom-p font-medium ">
+                    {errors.password}
+                  </p>
+                )}
+                <p className="text-custom-p mt-[9px]">
+                  Need help? <Link to="/ForgotPassword">Forgot password</Link>
+                </p>
               </div>
-
 
               <button
                 disabled={isSubmitting}
                 type="submit"
-                className="w-[385px]  bg-green-900 text-white font-normal  py-[8px] rounded-[5px] ">
+                className="w-[100%] bg-green-900 text-white font-normal  py-[8px] rounded-[5px] "
+              >
                 Login
               </button>
-
               <div className="mt-4 flex items-center">
                 <div className="flex-grow border-t border-gray-300"></div>
                 <div className="mx-5 text-gray-500">or</div>
                 <div className="flex-grow border-t border-gray-300"></div>
               </div>
-
-
-              <button
-                className="mt-4 w-[385px] flex items-center justify-center
-                bg-white text-black py-2 px-4 rounded-[5px] font-normal border-black border-[1px]">
-
+              <button className="mt-4 w-[100%] flex items-center justify-center bg-white text-black py-2 px-4 rounded-[5px] font-normal border-black border-[1px]">
                 <img
                   src="./assets/googlelogo.png"
                   alt="Google Logo"
                   className="mr-2 w-[20px] h-[20px]"
-                />Sign up with Google
+                />
+                Sign up with Google
               </button>
-
-              <p className="text-sm flex items-center justify-center mt-[12px]">New here? 
-              <a className="text-green-800" href="#">Sign up for free</a> </p>
-
-
+              <p className="text-custom-p flex items-center justify-center mt-[12px]">
+                New here?{" "}
+                <Link className="text-skin-primary" to="/home">
+                  {" "}
+                  Sign up for free{" "}
+                </Link>
+              </p>
             </form>
           </div>
         </div>
       </div>
     </>
   );
-
 };
 
 export default Login;
-
-
