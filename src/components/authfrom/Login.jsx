@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { BasicSchema } from "../../schemas";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 
 const onSubmit = async (values, actions) => {
   console.log(values);
@@ -8,6 +8,7 @@ const onSubmit = async (values, actions) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   actions.resetForm();
 };
+ 
 
 const Login = () => {
   const {
@@ -25,19 +26,16 @@ const Login = () => {
     },
     validationSchema: BasicSchema,
     onSubmit,
-  });
-
-  console.log(errors);
+  }); 
 
   return (
     <>
-      <div className="  bg-skin-base relative">
+      <div className="relative">
       <div className="min-h-screen flex items-center justify-center bg-[url('./assets/Login.png')] bg-auto bg-no-repeat bg-right relative lg:bg-[url('./assets/black.jpg')]">
-          <div className="mr-[210px] lg:w-[90%] lg:m-auto">
+          <div className="mr-[210px] lg:w-[90%] lg:m-auto bg-skin-whitecolor p-8 rounded w-[550px] lg:w-full">
             <form
               onSubmit={handleSubmit}
-              autoComplete="off"
-              className="bg-skin-whitecolor p-8 rounded w-[550px] lg:w-full"
+              autoComplete="off" 
             >
               <h4 className="mb-4 font-bold text-custom-h4">Welcome Back</h4>
               <div className="mb-4">
@@ -92,7 +90,7 @@ const Login = () => {
                   </p>
                 )}
                 <p className="text-custom-p mt-[9px]">
-                  Need help? <Link to="/ForgotPassword">Forgot password</Link>
+                  Need help? <Link to="/auth/forgotpassword">Forgot password</Link>
                 </p>
               </div>
 
@@ -108,6 +106,7 @@ const Login = () => {
                 <div className="mx-5 text-gray-500">or</div>
                 <div className="flex-grow border-t border-gray-300"></div>
               </div>
+            </form>
               <button className="mt-4 w-[100%] flex items-center justify-center bg-white text-black py-2 px-4 rounded-[5px] font-normal border-black border-[1px]">
                 <img
                   src="./assets/googlelogo.png"
@@ -123,7 +122,6 @@ const Login = () => {
                   Sign up for free{" "}
                 </Link>
               </p>
-            </form>
           </div>
         </div>
       </div>
