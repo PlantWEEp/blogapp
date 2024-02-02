@@ -33,8 +33,11 @@ export default {
           greybg: "var(--base-bg-color)",       // Grey background color
           whitecolor: "var(--color-white)",
           yellowcolor: "var(--yellow-bg)",
+<<<<<<< HEAD
           danger:"var(--danger)",
           primary:"(--primary-color)"
+=======
+>>>>>>> d4edc0ff1d0a9c34831bbf5aa09b51fe6842eff7
         },
       },
     },
