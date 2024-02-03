@@ -2,6 +2,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      content: {
+        'blob': 'url("./assets/blob.png")',
+        'arrowUpIcon': 'url("../src/arrow-up-icon.svg")',
+      },
       // Customizing font sizes
       fontSize: {
         "heading-lg": "64px",    // Large heading size
@@ -29,9 +33,6 @@ export default {
           greybg: "var(--base-bg-color)",       // Grey background color
           whitecolor: "var(--color-white)",
           yellowcolor: "var(--yellow-bg)",
-          primarycolor: "var(--primary-color)",
-          transparentcolor: "var(--transparent-b)"
-
         },
       },
     },
