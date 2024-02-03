@@ -10,20 +10,20 @@ const Header = () => {
 
                 {/* Explore and Write Links */}
                 <nav className="md:flex space-x-4 ml-[50px] mt-[10px]">
-                    <a href="#" className="text-white custom-p">Explore</a>
-                    <a href="#" className="text-white custom-p">Write</a>
+                    <a href="#" className="text-skin-textwhite custom-p">Explore</a>
+                    <a href="#" className="text-skin-textwhite custom-p">Write</a>
                 </nav>
             </div>
 
             {/* Right side */}
             <div className="flex items-center mr-[100px] gap-8 mt-[10px]">
                 {/* Get Started Button */}
-                <button className="bg-skin-primarycolor  text-white py-2 px-2 rounded-[22px] custom-p">
+                <button className="bg-skin-primarycolor  text-skin-textwhite py-2 px-2 rounded-[22px] custom-p">
                     Get Started
                 </button>
 
                 {/* Login Button */}
-                <button className="bg-skin-transparentcolor  border-white border-[1px] text-white  py-2 px-4 rounded-[22px] text-custom-p w-[82px]">
+                <button className="bg-skin-transparentcolor  border-white border-[1px] text-skin-textwhite  py-2 px-4 rounded-[22px] text-custom-p w-[82px]">
                     Login
                 </button>
             </div>

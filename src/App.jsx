@@ -6,6 +6,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Homecard from './components/authfrom/Homecard'
 import Header from './schemas/header'
 import Homepage from './pages/Homepage'
+import Searchpage from './pages/Searchpage'
 
 function App() { 
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/auth/homecard" element={<Homecard/>}/>
       <Route path="/auth/header" element={<Header/>}/>
       <Route path="/auth/homepage" element={<Homepage/>}/>
+      <Route path="/auth/searchpage" element={<Searchpage/>}/>
 
      </Routes>
      
