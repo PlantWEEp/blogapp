@@ -97,8 +97,7 @@ const Login = () => {
               <button
                 disabled={isSubmitting}
                 type="submit"
-                className="w-[100%] bg-green-900 text-white font-normal  py-[8px] rounded-[5px] "
-              >
+                className="w-[385px]  bg-green-900 text-white font-normal  py-[8px] rounded-[5px] ">
                 Login
               </button>
               <div className="mt-4 flex items-center">
