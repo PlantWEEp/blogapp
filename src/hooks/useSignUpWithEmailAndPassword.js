@@ -1,4 +1,5 @@
 // useSignUpWithEmailAndPassword.js
+//created
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth, firestore } from "../firebase/config";
 import { doc, setDoc } from "firebase/firestore";
