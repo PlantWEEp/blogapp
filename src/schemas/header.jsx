@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom"; 
+
+
 
 const Header = () => {
     return (
@@ -10,8 +13,8 @@ const Header = () => {
 
                 {/* Explore and Write Links */}
                 <nav className="md:flex space-x-4 ml-[50px] mt-[10px]">
-                    <a href="#" className="text-skin-textwhite custom-p">Explore</a>
-                    <a href="#" className="text-skin-textwhite custom-p">Write</a>
+                    <Link to="#" className="text-skin-textwhite custom-p">Explore</Link>
+                    <Link to="#" className="text-skin-textwhite custom-p">Write</Link>
                 </nav>
             </div>
 
