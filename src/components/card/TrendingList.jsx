@@ -43,8 +43,8 @@ function TrendingList() {
         <div>
           {blogPosts.map((list, index) => {
             return (
-              <div className="flex gap-[12px] items-center my-3 relative">
-                <div key={index} className=" w-[240px]">
+              <div key={index} className="flex gap-[12px] items-center my-3 relative">
+                <div  className=" w-[240px]">
                   <img src={list.image} className="w-[100%] rounded-[14px]" />
                 </div>
                 <div className="text-custom-h6 font-bold">{list.heading}</div>
