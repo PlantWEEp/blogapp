@@ -6,6 +6,7 @@ import ForgotPassword from './components/authfrom/ForgotPassword'
 import Home from './pages/Home' 
 import Header from './components/navbar/Header'
 import Search from "./pages/Search"
+import MenuTabs from './components/addPost/MenuTabs'
 
 function App() {  
   const location = useLocation(); 
@@ -20,6 +21,7 @@ function App() {
       <Route path='/auth/forgotpassword' element={<ForgotPassword/>} />
       <Route path="/" element={<Home/>}/>
       <Route path="/explore" element={<Search/>}/> 
+      <Route path="/add/post" element={<MenuTabs/>}/> 
      </Routes> 
       </>
 

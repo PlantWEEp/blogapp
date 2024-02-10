@@ -13,11 +13,11 @@ const Header = () => {
       <div className=" w-[92%] mx-auto flex items-center justify-between">
         {/* Left side */}
         <div className="flex items-center">
-          <img
+          <Link to="/"><img
             src="../../assets/thewaves-logo.svg"
             alt="Logo"
             className="h-8 w-8 mr-2"
-          />
+          /></Link>
           {/* Explore and Write Links */}
           <nav className="md:flex space-x-4 ml-[50px] text-skin-textwhite">
             {navMenu.map((menu) => (
