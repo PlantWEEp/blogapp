@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { BasicSchema } from "../../schemas";
-import OptScreen from "./OptScreen";
+import { otpSchema } from "../../schemas"; // Import otpSchema from your schemas
 
 export default function ForgotPassword() {
   const [showOtp, setShowOtp] = useState(true);
   const [email, setEmail] = useState("");
-
+  const [otp, setOtp] = useState({
+    digitoneOne: "",
+    digitoneTwo: "",
+    digitonThree: "",
+    digitoneFour: "",
+    digitoneFive: "",
+    digitoneSix: "",
+  });
+  const inputRef = useRef({});  
   const {
     values,
     errors,
@@ -16,24 +24,73 @@ export default function ForgotPassword() {
     handleBlur,
     handleChange,
     handleSubmit,
+    setSubmitting // Add setSubmitting from useFormik to handle submission state
   } = useFormik({
     initialValues: {
       email: "",
+      otp: {
+        digitoneOne: "",
+        digitoneTwo: "",
+        digitonThree: "",
+        digitoneFour: "",
+        digitoneFive: "",
+        digitoneSix: "",
+      }
     },
-    validationSchema: BasicSchema,
-    onSubmit: (values) => {
+    validationSchema: showOtp ? BasicSchema : otpSchema, 
+    onSubmit: async (values, { setSubmitting }) => {
+      // Check if showOtp is false (i.e., OTP stage)
+      if (!showOtp) {
+        // Check if any OTP field is invalid
+        if (Object.keys(errors.otp).some(field => touched.otp[field] && errors.otp[field])) {
+          // If any OTP field is invalid, prevent form submission
+          console.error("OTP is not valid.");
+          setSubmitting(false);
+          return;
+        }
+      }
+      // Proceed with form submission
       setEmail(values.email);
       setShowOtp(false);
+      setSubmitting(true);
+      // Handle further submission logic here
     },
   });
 
-  const renderOtp = () => {
-    return (
+  //here is the opt input form
+
+  const renderOtp = (keys) => {
+    return Object.keys(otp).map((keys, index) => (
       <input
+        maxLength="1"
+        ref={(element) => (inputRef.current[index] = element)}
+        key={index}
         type="text"
-        className="border-black border-[1px] placeholder-gray-400 text-custom-p rounded-[5px] text-center mr-3 w-16 h-12"
+        name={keys}
+        onChange={(event) => handleOtp(event, index)}
+        onKeyUp={(event) => handleBackSpace(event, index)}
+        className="border-black border-[1px] placeholder-gray-400 text-custom-p rounded-[5px] text-center mr-3 w-16 h-12 sm:w-7 sm:h-7 sm:mr-1"
       />
-    );
+    ));
+  };
+
+  const handleOtp = (event, index) => {
+    const { name, value } = event.target;
+    setOtp((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    if (value && index < 5) {
+      inputRef.current[index + 1].focus();
+    }
+  };
+
+  const handleBackSpace = (event, index) => {
+    if (event.key === "Backspace") {
+      if (index > 0) {
+        inputRef.current[index - 1].focus();
+      }
+    }
   };
 
   return (
@@ -42,9 +99,21 @@ export default function ForgotPassword() {
         <form
           onSubmit={handleSubmit}
           autoComplete="off"
-          className="bg-skin-whitecolor p-8 rounded w-[550px] lg:w-full"
+          className="bg-skin-whitecolor p-8 rounded w-[550px] lg:w-[80%] m-auto"
         >
-          <h4 className="mb-4 font-bold text-custom-h4">Welcome Back</h4>
+          <div className="mb-4">
+            <h4 className="font-bold text-custom-h4 ssm:text-custom-h5">
+              {" "}
+              Account Recovery
+            </h4>
+            {showOtp ? (
+              <p className="text-custom-p text-whitecolor">
+                Please provide the email address you used during registration.
+              </p>
+            ) : (
+              <p>we will send you an OTP to your email inbox.</p>
+            )}
+          </div>
           {showOtp ? (
             <div className="mb-4">
               <label
@@ -65,7 +134,6 @@ export default function ForgotPassword() {
                 } w-[100%] px-[14px] py-[8px]
                       border-black border-[1px] placeholder-gray-400 text-custom-p rounded-[5px]`}
               />
-
               {errors.email && touched.email && (
                 <p className="error text-red-600 text-custom-p font-medium ">
                   {errors.email}
@@ -73,18 +141,16 @@ export default function ForgotPassword() {
               )}
             </div>
           ) : (
-            <div className="mb-4">
+
+            // Otp input 
+            
+            <div className="mb-4 text-center">
               <label
                 htmlFor="password"
-                className="block text-black text-custom-p font-medium mb-2"
+                className="block text-black text-custom-p font-medium mb-2 text-start"
               >
                 Enter your OTP
               </label>
-              {renderOtp()}
-              {renderOtp()}
-              {renderOtp()}
-              {renderOtp()}
-              {renderOtp()}
               {renderOtp()}
             </div>
           )}
@@ -103,7 +169,10 @@ export default function ForgotPassword() {
                 Cancel and go back to login screen
               </Link>
             ) : (
-              <Link className="text-skin-primary" onClick={() => setShowOtp(!false)}>
+              <Link
+                className="text-skin-primary"
+                onClick={() => setShowOtp(!false)}
+              >
                 Resend OTP
               </Link>
             )}

@@ -39,7 +39,7 @@ const Login = () => {
     <>
       <div className="relative">
       <div className="min-h-screen flex items-center justify-center bg-[url('./assets/Login.png')] bg-auto bg-no-repeat bg-right relative lg:bg-[url('./assets/black.jpg')]">
-          <div className="mr-[210px] lg:w-[90%] lg:m-auto bg-skin-whitecolor p-8 rounded w-[550px] lg:w-full">
+          <div className="mr-[210px] lg:w-[90%] lg:m-auto bg-skin-whitecolor p-8 rounded w-[550px] ">
             <form
               onSubmit={handleSubmit}
               autoComplete="off" 

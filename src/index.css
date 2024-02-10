@@ -1,23 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-  @layer base{
-    :root{
-      --primary-color:#054300;
-      --background-color-base:#0A0A0A; 
-      --good-bg:#46FF64;
-      --danger:#FF4646;
-      --average-bg:#FFF846;
-      --color-white:#FFF5EE;
-      --secondary-bg:#30D5C8;
-      --yellow-bg:#FCB336;
-      --transparent-bg:#ffffff00;
-
-    }
+@layer base {
+  :root {
+    --primary-color: #054300;
+    --background-color-base: #0a0a0a;
+    --good-bg: #46ff64;
+    --danger: #ff4646;
+    --average-bg: #fff846;
+    --color-white: #fff5ee;
+    --secondary-bg: #30d5c8;
+    --yellow-bg: #fcb336;
+    --transparent-bg: rgba(255, 255, 255, 0.14);
+    --grey: #7e7f81;
   }
+}
 
- html{
-    background-color: #0A0A0A;
- }
+.btn {
+  @apply bg-skin-green text-skin-textwhite py-[8px] px-[24px] text-custom-p rounded-[4px] ;
+}
+.btn-second {
+  @apply bg-skin-transparent  text-skin-textwhite py-[8px] px-[24px] text-custom-p rounded-[4px] ;
+}
+.container {
+  @apply max-w-[1200px] mx-auto ;
+}
+
+html {
+  background-color: #0a0a0a;
+}

@@ -13,6 +13,7 @@ function App() {
 
   return (
     <>
+   {!isAdminRoute && <Header />}
      <Routes>
       <Route path="/auth/login" element={<Login/>}/>
       <Route path="/auth/register" element={<Signup/>}/>
@@ -31,4 +32,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

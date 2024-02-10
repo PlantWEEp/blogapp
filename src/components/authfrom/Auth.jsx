@@ -10,4 +10,4 @@ function Auth() {
   )
 }
 
-export default auth
+export default Auth
