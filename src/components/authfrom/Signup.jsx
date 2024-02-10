@@ -1,4 +1,4 @@
-//Signup.js
+
 import { useFormik } from "formik";
 import { RegisterSchema } from "../../schemas/register";
 import { Link } from "react-router-dom";
