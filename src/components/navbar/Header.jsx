@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { FaRegUser } from "react-icons/fa";
 const Header = () => {
-  const [userLogin, setUserLogin] = useState(true);
+  const [userLogin, setUserLogin] = useState(false);
   const navMenu = [
     { id: 1, name: "Explore", to: "/explore" },
     { id: 2, name: "Write", to: "/write" },
+    { id: 3, name: "Why choose as", to: "/" },
   ];
 
   return (
@@ -13,13 +14,15 @@ const Header = () => {
       <div className=" w-[92%] mx-auto flex items-center justify-between">
         {/* Left side */}
         <div className="flex items-center">
-          <Link to="/"><img
-            src="../../assets/thewaves-logo.svg"
-            alt="Logo"
-            className="h-8 w-8 mr-2"
-          /></Link>
+          <Link to="/">
+            <img
+              src="../../assets/thewaves-logo.svg"
+              alt="Logo"
+              className="h-8 w-8 mr-2"
+            />
+          </Link>
           {/* Explore and Write Links */}
-          <nav className="md:flex space-x-4 ml-[50px] text-skin-textwhite">
+          <nav className="md:flex space-x-4 ml-[50px] text-skin-textBase">
             {navMenu.map((menu) => (
               <Link key={menu.id} to={menu.to}>
                 {menu.name}
@@ -31,21 +34,21 @@ const Header = () => {
         <div className="flex items-center gap-5">
           {userLogin ? (
             <>
-              <button className="bg-skin-primarycolor text-skin-textwhite py-2 px-2 rounded-[22px] custom-p">
+              <Link to="/auth/register" className="btn">
                 Get Started
-              </button>
-              <button className="bg-skin-transparentcolor border-white border-[1px] text-skin-textwhite py-[7px] px-[20px] rounded-full text-custom-p">
+              </Link>
+              <Link to="/auth/login" className="btn-second">
                 Login
-              </button>
+              </Link>
             </>
           ) : (
             <>
-              <button className="bg-skin-primarycolor text-skin-textwhite py-2 px-2 rounded-[22px] custom-p">
-                Profile
-              </button>
-              <button className="bg-skin-transparentcolor border-white border-[1px] text-skin-textwhite py-[7px] px-[20px] rounded-full text-custom-p">
+              <Link to="/auth/register" className="btn flex items-center gap-2">
+                 Profile
+              </Link>
+              <Link to="/auth/login" className="btn-second">
                 Logout
-              </button>
+              </Link>
             </>
           )}
         </div>

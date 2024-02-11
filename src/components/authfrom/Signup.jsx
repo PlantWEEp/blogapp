@@ -144,7 +144,7 @@ const Signup = () => {
             </div> 
             <button
               type="submit"
-              className="bg-green-900 text-skin-textwhite mb-2 px-[25px] py-[8px] border-black border-[1px] text-sm custom-p rounded-[5px] "
+              className="bg-green-900 text-skin-textBase mb-2 px-[25px] py-[8px] border-black border-[1px] text-sm custom-p rounded-[5px] "
             >
               Register
             </button>

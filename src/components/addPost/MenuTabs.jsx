@@ -14,7 +14,7 @@ function MenuTabs() {
 
   return (
     <>
-      <div className="text-skin-textwhite container">
+      <div className="text-skin-textBase container">
         <div className="flex justify-between items-center py-4">
           <div className="">
             <h4 className="font-[700] text-custom-h4">Add Post</h4>
@@ -47,7 +47,7 @@ function MenuTabs() {
               </div>
             </div>
             {/* Render the active panel */}
-            <div className="w-full text-skin-textwhite">
+            <div className="w-full text-skin-textBase">
               {panels[activeTab]}
             </div>
           </div>

@@ -1,7 +1,7 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
+    extend: { 
       fontFamily: {
         body: ['DM Sans'],
       },
@@ -31,15 +31,18 @@ export default {
       textColor: {
         skin: {
           textblack: "var( --background-color-base)",
-          textwhite: "var(--color-white)",
+          textBase: "var(--color-black)",
           grey:"var(--grey)", 
           primary:"var(--primary-color)",
+          white:"var(--white)"
         },
       },
       // Customizing background colors
       backgroundColor: {
         skin: {
-          base: "var(--background-color-base)",        
+          base: "var(--background-color-base)",   
+          secondary: "var(--secondary-bg)",   
+          grey:"var(--grey)",      
           whitecolor: "var(--color-white)",
           yellowcolor: "var(--yellow-bg)",
           danger:"var(--danger)",

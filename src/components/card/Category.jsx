@@ -12,7 +12,7 @@ function Category() {
   ]; 
   return (
     <>
-      <div className='text-skin-textwhite bg-skin-transparent p-[20px] rounded-[14px] max-h-[225px]'> 
+      <div className='text-skin-textBase bg-skin-transparent p-[20px] rounded-[14px] max-h-[225px]'> 
       <h4 className='mb-5'>Category by loaction</h4>
       <div className=' flex flex-wrap gap-3'>
         {touristCategory.map((category,index)=>{
