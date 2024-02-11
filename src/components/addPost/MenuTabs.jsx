@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Addpage from "./Ratings";
 import Overview from "./Overview";
+import { lazy } from "react";
 
 function MenuTabs() {
-  const menu = ["Ratings", "Overview", "Gallery", "Stay"];
-  const [activeTab, setActiveTab] = useState(0); 
+  const menu = ["Ratings", "Overview", "Expensive", "Stay"];
+  const [activeTab, setActiveTab] = useState(0);
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
@@ -45,10 +46,10 @@ function MenuTabs() {
                 <button className="btn">Upload</button>
               </div>
             </div>
-        {/* Render the active panel */}
-        <div className="w-full text-skin-textwhite">
-          {panels[activeTab]}
-        </div> 
+            {/* Render the active panel */}
+            <div className="w-full text-skin-textwhite">
+              {panels[activeTab]}
+            </div>
           </div>
         </div>
       </div>
