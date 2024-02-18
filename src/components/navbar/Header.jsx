@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { FaRegUser } from "react-icons/fa";
+import { useLocation } from 'react-router-dom';
+import useLogout from "../../hooks/Uselogout";
+import { useSelector } from 'react-redux';
+
 const Header = () => {
-  const [userLogin, setUserLogin] = useState(false);
+  const userLogin = useSelector((state) => state.auth.status);
+  console.log(userLogin);
+
   const navMenu = [
     { id: 1, name: "Explore", to: "/explore" },
     { id: 2, name: "Write", to: "/write" },
     { id: 3, name: "Why choose as", to: "/" },
   ];
 
+  const{handleLogout, loading, error}=useLogout()
+
+  const location = useLocation();
+  const headerClass = location.pathname === '/' ? 'bg-skin-green' : 'bg-skin-transparent';
+  const headerText = location.pathname === '/' ? 'text-skin-white' : 'text-skin-textBase';
+  
+  
   return (
-    <header className="relative bg-skin-transparent backdrop-blur-[243.7px] p-4 flex justify-between items-center h-[70px]">
-      <div className=" w-[92%] mx-auto flex items-center justify-between">
-        {/* Left side */}
+    <header className={`relative ${headerClass} backdrop-blur-[243.7px] p-4 flex justify-between items-center h-[70px]`}>
+      <div className=" w-[92%] mx-auto flex items-center justify-between"> 
         <div className="flex items-center">
           <Link to="/">
             <img
@@ -20,9 +31,8 @@ const Header = () => {
               alt="Logo"
               className="h-8 w-8 mr-2"
             />
-          </Link>
-          {/* Explore and Write Links */}
-          <nav className="md:flex space-x-4 ml-[50px] text-skin-textBase">
+          </Link> 
+          <nav className={`md:flex ${headerText} space-x-4 ml-[50px]`}>
             {navMenu.map((menu) => (
               <Link key={menu.id} to={menu.to}>
                 {menu.name}
@@ -46,9 +56,9 @@ const Header = () => {
               <Link to="/auth/register" className="btn flex items-center gap-2">
                  Profile
               </Link>
-              <Link to="/auth/login" className="btn-second">
+              <button onClick={handleLogout} className="btn-second">
                 Logout
-              </Link>
+              </button>
             </>
           )}
         </div>

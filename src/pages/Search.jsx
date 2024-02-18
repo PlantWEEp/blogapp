@@ -44,7 +44,7 @@ const Searchpage = () => {
             </div>
           {/* Display suggestions or error message */}
           {searchQuery && (
-            <div className="mt-2 mx-4">
+            <div className="mt-2 mx-4 shadow-md">
               <ul className="bg-skin-dark border border-skin-secondary rounded-md p-2 max-h-[184px] overflow-x-auto scroll-smooth ">
                 {suggestions.map((suggestion, index) => (
                   <li
