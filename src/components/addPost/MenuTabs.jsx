@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Addpage from "./Ratings";
-import Overview from "./Overview";
-import { lazy } from "react";
+import Overview from "./Overview"; 
 
 function MenuTabs() {
   const menu = ["Ratings", "Overview", "Expensive", "Stay"];

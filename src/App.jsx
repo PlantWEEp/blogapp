@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import Header from './components/navbar/Header'
 import Search from "./pages/Search"
 import MenuTabs from './components/addPost/MenuTabs'
+import Profile from './components/userProfile/Profile'
+import DetailPages from "./pages/detailPages"
 
 function App() {  
   const location = useLocation(); 
@@ -22,6 +24,8 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/explore" element={<Search/>}/> 
       <Route path="/add/post" element={<MenuTabs/>}/> 
+      <Route path="/user/profile" element={<Profile/>}/> 
+      <Route path="/post/detail" element={<DetailPages/>}/> 
      </Routes> 
       </>
 

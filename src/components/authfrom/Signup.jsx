@@ -35,7 +35,7 @@ const Signup = () => {
         <form
           onSubmit={handleSubmit}
           autoComplete="off"
-          className="bg-skin-whitecolor p-8 rounded shadow-md w-[500px]"
+          className="bg-skin-whitecolor bg-skin p-8 rounded shadow-md w-[500px]"
         >
           <h4 className="font-bold text-custom-h4 flex items-start">Sign up</h4>
           <p className="mb-[15px] text-custom-p">

@@ -2,14 +2,12 @@ import { useFormik } from "formik";
 import { BasicSchema } from "../../schemas";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-const onSubmit = async (values, actions) => {
-  console.log(values, "hiii");
-  console.log(actions);
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  actions.resetForm();
-};
+import useLogin from "../../hooks/useLogin";
 
-const Login = () => {
+const Login = () => { 
+
+  const { loading, error, login } = useLogin()
+
   const {
     values,
     errors,
@@ -24,8 +22,12 @@ const Login = () => {
       password: "",
     },
     validationSchema: BasicSchema,
-    onSubmit,
-  });
+    onSubmit: async (values, actions) => {
+      console.log("Submitting form with values:", values);
+      await login(values);
+      actions.resetForm(); 
+    }
+  }); 
 
   return (
     <>

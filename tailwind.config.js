@@ -42,8 +42,8 @@ export default {
         skin: {
           base: "var(--background-color-base)",   
           secondary: "var(--secondary-bg)",   
-          grey:"var(--grey)",      
-          whitecolor: "var(--color-white)",
+          grey:"var(--grey)",       
+          whitecolor: "var(--white)",
           yellowcolor: "var(--yellow-bg)",
           danger:"var(--danger)",
           green:"var(--primary-color)",
