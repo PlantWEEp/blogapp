@@ -5,13 +5,13 @@ import useLogout from "../../hooks/Uselogout";
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const userLogin = useSelector((state) => state.auth.status);
+  const userLogin = useSelector((state) => state.auth.user);
   console.log(userLogin);
 
   const navMenu = [
     { id: 1, name: "Explore", to: "/explore" },
     { id: 2, name: "Write", to: "/write" },
-    { id: 3, name: "Why choose as", to: "/" },
+    { id: 3, name: "Events", to: "/" },
   ];
 
   const{handleLogout, loading, error}=useLogout()
@@ -44,6 +44,15 @@ const Header = () => {
         <div className="flex items-center gap-5">
           {userLogin ? (
             <>
+            <Link to="/auth/register" className="btn flex items-center gap-2">
+               Profile
+            </Link>
+            <button onClick={handleLogout} className="btn-second">
+              Logout
+            </button>
+          </>
+          ) : (
+            <>
               <Link to="/auth/register" className="btn">
                 Get Started
               </Link>
@@ -51,15 +60,7 @@ const Header = () => {
                 Login
               </Link>
             </>
-          ) : (
-            <>
-              <Link to="/auth/register" className="btn flex items-center gap-2">
-                 Profile
-              </Link>
-              <button onClick={handleLogout} className="btn-second">
-                Logout
-              </button>
-            </>
+            
           )}
         </div>
       </div>
