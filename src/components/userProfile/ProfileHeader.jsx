@@ -1,6 +1,3 @@
-import useUserProfileStore from "../store/userProfileStore";
-import useAuthStore from "../../store/authStore";
-
 
 const ProfileHeader = () => {
 	const { userProfile } = useUserProfileStore();

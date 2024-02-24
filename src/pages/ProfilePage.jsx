@@ -1,6 +1,6 @@
 
 import ProfileHeader from "../components/userProfile/ProfileHeader";
-import useGetUserProfileByUsername from "../component/hooks/useGetUserProfileByUsername";
+import { useGetUserProfileByUsername } from "../hooks/useGetUserProfileByUsername";
 import { useParams } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 
