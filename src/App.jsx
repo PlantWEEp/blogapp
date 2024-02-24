@@ -5,6 +5,7 @@ import Signup from './components/authfrom/Signup'
 import { Route, Routes, useLocation } from 'react-router-dom' 
 import Home from './pages/Home' 
 import Search from "./pages/Search"
+<<<<<<< Updated upstream
 import MenuTabs from './components/addPost/MenuTabs'
 import Profile from './components/userProfile/Profile'
 import DetailPages from "./pages/detailPages"
@@ -12,6 +13,9 @@ import ProfilePage from './pages/ProfilePage'
 
 function App() { 
 
+=======
+import MenuTabs from "./components/addPost/MenuTabs"
+>>>>>>> Stashed changes
 
   return (
     <>
