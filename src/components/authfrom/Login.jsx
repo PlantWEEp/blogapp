@@ -1,13 +1,13 @@
 import { useFormik } from "formik";
 import { BasicSchema } from "../../schemas";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import useLogin from "../../hooks/useLogin";
+import { useDispatch } from 'react-redux'; 
+import {toast} from "react-toastify"
 
-const Login = () => { 
-
-  const { loading, error, login } = useLogin()
-
+const Login = () => {  
+  const { loading, error, login } = useLogin() 
   const {
     values,
     errors,
@@ -16,18 +16,23 @@ const Login = () => {
     handleBlur,
     handleChange,
     handleSubmit,
-  } = useFormik({
+ } = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     validationSchema: BasicSchema,
     onSubmit: async (values, actions) => {
-      console.log("Submitting form with values:", values);
-      await login(values);
-      actions.resetForm(); 
-    }
-  }); 
+      try {
+        console.log("Submitting form with values:", values);
+        await login(values);
+        actions.resetForm(); 
+      } catch (error) {
+        console.error(error);
+      }
+    }, 
+});
+
 
   return (
     <>
@@ -100,6 +105,10 @@ const Login = () => {
               >
                 Login
               </button>
+              {<p className="error text-red-600 text-custom-p font-medium ">
+                    {error}
+                  </p>
+                }
               <div className="mt-4 flex items-center">
                 <div className="flex-grow border-t border-gray-300"></div>
                 <div className="mx-5 text-gray-500">or</div>
