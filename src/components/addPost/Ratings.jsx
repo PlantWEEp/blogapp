@@ -97,5 +97,3 @@ function Ratings() {
 }
 
 export default Ratings;
-
-
