@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
-  status: false, // Assuming status indicates whether the user is authenticated or not
-};
+  status: false, 
+}
 
 const authSlice = createSlice({
   name: "auth",
